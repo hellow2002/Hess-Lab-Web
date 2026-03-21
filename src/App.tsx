@@ -585,7 +585,7 @@ function LocationPage() {
             ></iframe>
             
             {/* Open in Map Button Overlay */}
-            <div className="absolute top-6 left-6 z-10">
+            <div className="absolute top-6 right-6 z-10">
               <a 
                 href="https://www.google.com/maps/search/?api=1&query=서울+강남구+봉은사로24길+8" 
                 target="_blank" 
@@ -773,3 +773,4 @@ export default function App() {
     </Router>
   );
 }
+
