@@ -35,7 +35,7 @@ const programs = [
     originalPrice: "110,000",
     discountPrice: "55,000",
     discountRate: "50%",
-    image: "https://images.unsplash.com/photo-1544126592-807daf21565c?q=80&w=2070&auto=format&fit=crop",
+    image: "/program1.jpeg",
     icon: <Sparkles className="w-6 h-6" />
   },
   {
@@ -47,7 +47,7 @@ const programs = [
     originalPrice: "180,000",
     discountPrice: "126,000",
     discountRate: "30%",
-    image: "https://images.unsplash.com/photo-1519415510236-718bdfcd89c9?q=80&w=2070&auto=format&fit=crop",
+    image: "/program2.jpeg",
     icon: <Heart className="w-6 h-6" />
   },
   {
@@ -59,7 +59,7 @@ const programs = [
     originalPrice: "240,000",
     discountPrice: "168,000",
     discountRate: "30%",
-    image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=2070&auto=format&fit=crop",
+    image: "/program3.jpeg",
     icon: <Flower2 className="w-6 h-6" />
   },
   {
@@ -71,7 +71,7 @@ const programs = [
     originalPrice: "300,000",
     discountPrice: "210,000",
     discountRate: "30%",
-    image: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?q=80&w=2070&auto=format&fit=crop",
+    image: "/program4.jpeg",
     icon: <Sparkles className="w-6 h-6" />
   }
 ];
@@ -165,9 +165,8 @@ function Footer() {
             </div>
             <div className="flex flex-col gap-4">
               <span className="text-brand-beige/40">Social</span>
-              <a href="#" className="hover:text-brand-beige">Instagram</a>
-              <a href="#" className="hover:text-brand-beige">Blog</a>
-              <a href="#" className="hover:text-brand-beige">Kakao</a>
+              <a href="https://www.instagram.com/thelife.therapy" target="_blank" rel="noopener noreferrer" className="hover:text-brand-beige">Instagram</a>
+              <a href="https://youtube.com/@thelife_therapy?si=xHi0NsV59SN7DS4K" target="_blank" rel="noopener noreferrer" className="hover:text-brand-beige">YouTube</a>
             </div>
           </div>
         </div>
@@ -276,7 +275,7 @@ function HomePage() {
                 className="group"
               >
                 <div className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-6">
-                  <img src={program.image} alt={program.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" referrerPolicy="no-referrer" />
+                  <img src={program.image} alt={program.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-brand-ink/20"></div>
                   <div className="absolute top-4 left-4 bg-brand-gold text-white text-[10px] px-2 py-1 rounded-sm font-bold">
                     {program.discountRate} OFF
@@ -443,13 +442,10 @@ function ProgramsPage() {
                     <img 
                       src={program.image} 
                       alt={program.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-brand-ink/10 group-hover:bg-brand-ink/30 transition-colors duration-500"></div>
-                    <div className="absolute top-6 left-6 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
-                      {program.icon}
-                    </div>
                   </div>
                   <div className="md:w-3/5 p-8 flex flex-col justify-between">
                     <div>
@@ -475,7 +471,6 @@ function ProgramsPage() {
                           <span className="text-2xl font-bold text-brand-ink">{program.discountPrice}원</span>
                         </div>
                       </div>
-                      <Link to="/reservation" className="text-[10px] tracking-widest uppercase font-bold text-brand-gold border-b border-brand-gold/30 pb-1 hover:border-brand-gold transition-all">Book Now</Link>
                     </div>
                   </div>
                 </div>
@@ -697,10 +692,9 @@ function AcademyPage() {
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-start">
           <motion.div {...fadeInUp}>
             <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">
-              아카데미 입학 및<br />
-              교육 문의
+              아카데미 입학 및 교육 문의
             </h2>
-            <p className="text-brand-beige/60 leading-relaxed mb-12 max-w-md">
+            <p className="text-brand-beige/60 leading-relaxed mb-12 break-keep">
               헤스랩의 전문적인 테라피 기술과 철학을 전수받고 싶으신가요?<br />
               교육 과정에 대한 궁금한 점은 언제든 문의주세요.
             </p>
@@ -712,7 +706,7 @@ function AcademyPage() {
                 </div>
                 <div>
                   <p className="text-[10px] uppercase tracking-widest opacity-40 mb-1">Email</p>
-                  <p className="text-lg font-serif">academy@hesslab.com</p>
+                  <p className="text-lg font-serif">hesslab2025@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-6">
@@ -721,7 +715,7 @@ function AcademyPage() {
                 </div>
                 <div>
                   <p className="text-[10px] uppercase tracking-widest opacity-40 mb-1">Phone</p>
-                  <p className="text-lg font-serif">02-1234-5678</p>
+                  <p className="text-lg font-serif">02-566-1279</p>
                 </div>
               </div>
             </div>
