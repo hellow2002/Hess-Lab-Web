@@ -490,8 +490,8 @@ function LocationPage() {
       name: "언주역 본점",
       address: "서울 강남구 봉은사로24길 8 3층",
       subAddress: "(언주역 8번 출구에서 151m)",
-      hours: "매일 10:00 - 20:00",
-      phone: "010-1234-5678",
+      hours: "10:00 - 18:00",
+      phone: "02-566-1279",
       naverUrl: "https://naver.me/5BwIqWV7"
     }
   ];
@@ -529,7 +529,6 @@ function LocationPage() {
                       <div>
                         <p className="text-brand-ink/40 mb-2 font-bold">OPENING HOURS</p>
                         <p className="font-medium text-brand-ink">{branch.hours}</p>
-                        <p className="text-brand-ink/60 mt-1">연중무휴</p>
                       </div>
                       <div>
                         <p className="text-brand-ink/40 mb-2 font-bold">PHONE</p>
