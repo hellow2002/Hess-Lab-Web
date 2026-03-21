@@ -1,0 +1,7 @@
+{
+  "name": "Hess Lab",
+  "description": "Premium prenatal and postnatal spa specializing in maternity care, inspired by luxury wellness aesthetics.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
