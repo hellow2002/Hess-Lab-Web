@@ -196,7 +196,7 @@ function HomePage() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop" 
+            src="/main1.jpeg" 
             alt="Spa Atmosphere" 
             className="w-full h-full object-cover brightness-75 scale-105 animate-slow-zoom"
             referrerPolicy="no-referrer"
@@ -244,7 +244,8 @@ function HomePage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2 {...fadeInUp} className="text-4xl md:text-5xl font-serif mb-8">가장 소중한 순간, 가장 완벽한 휴식</motion.h2>
           <motion.p {...fadeInUp} className="text-brand-muted max-w-2xl mx-auto leading-relaxed mb-12">
-            헤스랩(Hess Lab)은 임신과 출산이라는 경이로운 여정을 걷는 여성들을 위한 프리미엄 산전·산후 전문 스파입니다.
+            헤스랩(Hess Lab)은 임신과 출산이라는 경이로운 여정을 걷는<br />
+            여성들을 위한 프리미엄 산전·산후 전문 스파입니다.
           </motion.p>
           <motion.div {...fadeInUp}>
             <Link to="/about" className="text-brand-gold text-xs tracking-widest uppercase font-bold border-b border-brand-gold/30 pb-2">Learn More About Us</Link>
@@ -314,7 +315,8 @@ function AboutPage() {
               가장 완벽한 휴식
             </h2>
             <p className="text-brand-muted leading-relaxed mb-8 max-w-md">
-              헤스랩(Hess Lab)은 임신과 출산이라는 경이로운 여정을 걷는 여성들을 위한 프리미엄 산전·산후 전문 스파입니다. 
+              헤스랩(Hess Lab)은 임신과 출산이라는 경이로운 여정을 걷는<br />
+              여성들을 위한 프리미엄 산전·산후 전문 스파입니다.<br />
               단순한 마사지를 넘어, 생명의 탄생을 준비하고 회복하는 모든 과정에서 최상의 웰니스를 경험하실 수 있도록 설계되었습니다.
             </p>
             <div className="flex flex-col gap-4">
@@ -348,65 +350,6 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* Atmosphere Section */}
-      <section className="py-32 overflow-hidden bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-            <motion.div {...fadeInUp}>
-              <span className="text-brand-gold text-[11px] tracking-[0.3em] uppercase mb-4 block">Atmosphere</span>
-              <h2 className="text-5xl font-serif">The Healing Space</h2>
-            </motion.div>
-            <motion.p {...fadeInUp} className="text-brand-muted text-sm max-w-xs leading-relaxed">
-              오직 당신만을 위해 준비된 프라이빗한 공간에서 도심 속 완벽한 휴식을 경험하세요.
-            </motion.p>
-          </div>
-
-          <div className="grid grid-cols-12 gap-4 h-[600px]">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="col-span-12 md:col-span-8 h-full rounded-2xl overflow-hidden"
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop" 
-                alt="Spa Treatment Room" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
-                referrerPolicy="no-referrer"
-              />
-            </motion.div>
-            <div className="col-span-12 md:col-span-4 flex flex-col gap-4 h-full">
-              <motion.div 
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="flex-1 rounded-2xl overflow-hidden"
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1531234799389-dcb7651eb0a2?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Spa Details" 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
-                  referrerPolicy="no-referrer"
-                />
-              </motion.div>
-              <motion.div 
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="flex-1 rounded-2xl overflow-hidden"
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Spa Products" 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
-                  referrerPolicy="no-referrer"
-                />
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
     </motion.div>
   );
 }
@@ -662,7 +605,56 @@ function ReservationPage() {
   );
 }
 
+const prenatalSchedule = [
+  {
+    date: "3/30",
+    day: "mon",
+    title: "부종과 체중 증가 STOP!",
+    details: [
+      "20주라면 만삭까지 10KG증가 작전!",
+      "이미 15KG이상 증가했다면 증가 중지 작전"
+    ]
+  },
+  {
+    date: "3/31",
+    day: "tue",
+    title: "통증과 체형 변화 STOP!",
+    details: [
+      "환도, 꼬리뼈, 치골, 허리, 고관절"
+    ]
+  },
+  {
+    date: "4/1",
+    day: "wed",
+    title: "피부 변화와 면역력의 관계",
+    details: [
+      "튼살, 색소침착, 임신선, 기미, 쥐젖 관리법",
+      "가려움, 소양증 대처법"
+    ]
+  },
+  {
+    date: "4/2",
+    day: "thu",
+    title: "출산 후 관리법",
+    details: [
+      "출산직후 ~ 6주간의 관리법",
+      "산후후유증 예방 및 대처법"
+    ]
+  },
+  {
+    date: "4/4",
+    day: "sat",
+    title: "남편이 해주는 마사지",
+    details: [
+      "부종과 통증, 불면 개선",
+      "신체 포인트별 마사지 테크닉"
+    ]
+  }
+];
+
 function AcademyPage() {
+  const [activeTab, setActiveTab] = useState<'prenatal' | 'professional'>('prenatal');
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -670,76 +662,207 @@ function AcademyPage() {
       exit={{ opacity: 0 }}
       className="pt-32"
     >
-      {/* Hero Section */}
-      <section className="py-24 flex items-center justify-center bg-brand-beige/30">
-        <div className="text-center max-w-2xl px-6">
-          <span className="text-brand-gold text-[13px] tracking-[0.3em] uppercase mb-6 block font-bold">ACADEMY</span>
-          <h2 className="text-4xl md:text-5xl font-serif text-brand-ink mb-8 leading-tight">
-            HESS LAB Academy<br />
-            Coming Soon
-          </h2>
-          <p className="text-brand-muted leading-relaxed mb-12">
-            헤스랩만의 독자적인 테라피 기술과 철학을 공유하는 아카데미가 곧 오픈될 예정입니다. 
-            전문 테라피스트 양성을 위한 체계적인 커리큘럼을 준비하고 있습니다.
-          </p>
-          <div className="h-[1px] bg-brand-ink/10 w-24 mx-auto"></div>
-        </div>
-      </section>
+      {/* Tabs */}
+      <div className="max-w-7xl mx-auto px-6 mb-12 flex justify-center gap-8 border-b border-brand-ink/10">
+        <button
+          onClick={() => setActiveTab('prenatal')}
+          className={`pb-4 text-sm tracking-widest uppercase font-bold transition-colors relative ${
+            activeTab === 'prenatal' ? 'text-brand-gold' : 'text-brand-muted hover:text-brand-ink'
+          }`}
+        >
+          Prenatal Class
+          {activeTab === 'prenatal' && (
+            <motion.div layoutId="academyTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-gold" />
+          )}
+        </button>
+        <button
+          onClick={() => setActiveTab('professional')}
+          className={`pb-4 text-sm tracking-widest uppercase font-bold transition-colors relative ${
+            activeTab === 'professional' ? 'text-brand-gold' : 'text-brand-muted hover:text-brand-ink'
+          }`}
+        >
+          Professional Training
+          {activeTab === 'professional' && (
+            <motion.div layoutId="academyTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-gold" />
+          )}
+        </button>
+      </div>
 
-      {/* Inquiry Section */}
-      <section className="py-32 bg-brand-ink text-brand-beige">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-start">
-          <motion.div {...fadeInUp}>
-            <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">
-              아카데미 입학 및 교육 문의
-            </h2>
-            <p className="text-brand-beige/60 leading-relaxed mb-12 break-keep">
-              헤스랩의 전문적인 테라피 기술과 철학을 전수받고 싶으신가요?<br />
-              교육 과정에 대한 궁금한 점은 언제든 문의주세요.
-            </p>
+      {activeTab === 'professional' ? (
+        <>
+          {/* Hero Section */}
+          <section className="py-24 bg-brand-beige/30">
+            <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="order-2 md:order-1"
+              >
+                <img 
+                  src="/professional_training1.jpeg" 
+                  alt="Professional Training" 
+                  className="rounded-3xl shadow-xl w-full h-[400px] md:h-[500px] object-cover" 
+                  referrerPolicy="no-referrer" 
+                />
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="order-1 md:order-2 text-center md:text-left"
+              >
+                <span className="text-brand-gold text-[13px] tracking-[0.3em] uppercase mb-6 block font-bold">ACADEMY</span>
+                <h2 className="text-4xl md:text-5xl font-serif text-brand-ink mb-8 leading-tight">
+                  HESS LAB Academy
+                </h2>
+                <div className="text-brand-muted leading-relaxed mb-12 break-keep space-y-4">
+                  <p>
+                    헤스랩 아카데미는 산전·산후 관리의 새로운 기준을 제시하는 전문 테라피스트 양성 기관입니다.
+                  </p>
+                  <p>
+                    수많은 산모님들을 케어하며 쌓아온 헤스랩만의 독자적인 테라피 기술과 철학을 바탕으로, 체계적이고 실무 중심적인 커리큘럼을 제공합니다. 여성의 신체 변화에 대한 깊은 이해와 전문적인 케어 노하우를 전수하여 최고의 프리미엄 테라피스트를 육성합니다.
+                  </p>
+                </div>
+                <div className="h-[1px] bg-brand-ink/10 w-24 mx-auto md:mx-0"></div>
+              </motion.div>
+            </div>
+          </section>
 
-            <div className="space-y-8">
-              <div className="flex items-center gap-6">
-                <div className="w-12 h-12 rounded-full border border-brand-beige/20 flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-brand-gold" />
+          {/* Inquiry Section */}
+          <section className="py-32 bg-brand-ink text-brand-beige">
+            <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-start">
+              <motion.div {...fadeInUp}>
+                <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">
+                  아카데미 교육 문의
+                </h2>
+                <p className="text-brand-beige/60 leading-relaxed mb-12 break-keep">
+                  헤스랩의 전문적인 테라피 기술과 철학을 전수받고 싶으신가요?<br />
+                  교육 과정에 대한 궁금한 점은 언제든 문의주세요.
+                </p>
+
+                <div className="space-y-8">
+                  <div className="flex items-center gap-6">
+                    <div className="w-12 h-12 rounded-full border border-brand-beige/20 flex items-center justify-center">
+                      <Mail className="w-5 h-5 text-brand-gold" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase tracking-widest opacity-40 mb-1">Email</p>
+                      <p className="text-lg font-serif">hesslab2025@gmail.com</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-6">
+                    <div className="w-12 h-12 rounded-full border border-brand-beige/20 flex items-center justify-center">
+                      <Phone className="w-5 h-5 text-brand-gold" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase tracking-widest opacity-40 mb-1">Phone</p>
+                      <p className="text-lg font-serif">02-566-1279</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-widest opacity-40 mb-1">Email</p>
-                  <p className="text-lg font-serif">hesslab2025@gmail.com</p>
+              </motion.div>
+
+              <motion.div 
+                {...fadeInUp}
+                className="flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm p-12 md:p-20 rounded-3xl border border-white/10 text-center w-full"
+              >
+                <h3 className="text-2xl font-serif mb-8 text-white">교육 상담 및 문의</h3>
+                <p className="text-brand-beige/60 text-sm mb-12 leading-relaxed">
+                  아래 버튼을 클릭하여 문의 양식을 작성해 주시면<br />
+                  확인 후 신속하게 답변해 드리겠습니다.
+                </p>
+                <a 
+                  href="https://forms.gle/uLTsWWwC1Yp151FU6" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block bg-brand-gold text-white px-16 py-6 text-xs tracking-[0.3em] uppercase font-bold hover:bg-white hover:text-brand-ink transition-all duration-500 rounded-xl shadow-2xl"
+                >
+                  문의하기
+                </a>
+              </motion.div>
+            </div>
+          </section>
+        </>
+      ) : (
+        <section className="py-24 bg-brand-beige/10">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <span className="text-brand-gold text-[13px] tracking-[0.3em] uppercase mb-4 block font-bold">Prenatal Class</span>
+                <h2 className="text-4xl md:text-5xl font-serif text-brand-ink mb-4 leading-tight">
+                  '진짜맘카페' 산모교실
+                </h2>
+                <p className="text-brand-muted text-lg mb-12">by 헤스랩 회복센터</p>
+
+                <div className="text-brand-ink/80 leading-relaxed space-y-6 break-keep">
+                  <p>
+                    임신과 출산은 여성의 몸에 가장 경이롭고도 급격한 변화를 가져오는 시기입니다. 하지만 체중 증가, 통증, 피부 변화 등 낯선 신체 변화로 인해 막연한 불안감과 불편함을 겪는 산모님들이 많습니다.
+                  </p>
+                  <p>
+                    헤스랩 회복센터는 수많은 산모님들을 케어해 온 전문적인 노하우를 바탕으로, 임신 기간 동안 겪게 되는 신체 변화의 원인을 정확히 이해하고 현명하게 대처할 수 있는 실질적인 솔루션을 제공하고자 <strong className="text-brand-gold font-medium">'진짜맘카페' 산모교실</strong>을 준비했습니다.
+                  </p>
+                  <p>
+                    단순한 이론 교육을 넘어, 집에서도 쉽게 따라 할 수 있는 홈케어 관리법과 남편과 함께하는 마사지 테크닉까지. 건강한 임신 기간과 행복한 출산, 그리고 완벽한 산후 회복을 위한 헤스랩만의 특별한 노하우를 만나보세요.
+                  </p>
                 </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <img 
+                  src="/prenatal_class1.jpeg" 
+                  alt="Prenatal Class" 
+                  className="rounded-3xl shadow-xl w-full h-[400px] md:h-[600px] object-cover" 
+                  referrerPolicy="no-referrer" 
+                />
+              </motion.div>
+            </div>
+
+            <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-brand-ink/5">
+              <div className="bg-brand-ink text-brand-beige py-4 text-center font-serif text-xl">
+                클래스 스케줄
               </div>
-              <div className="flex items-center gap-6">
-                <div className="w-12 h-12 rounded-full border border-brand-beige/20 flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-brand-gold" />
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-widest opacity-40 mb-1">Phone</p>
-                  <p className="text-lg font-serif">02-566-1279</p>
+              <div className="p-8 md:p-12">
+                <div className="space-y-8">
+                  {prenatalSchedule.map((item, idx) => (
+                    <motion.div 
+                      key={idx}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="flex flex-col md:flex-row gap-6 md:gap-12 pb-8 border-b border-brand-ink/10 last:border-0 last:pb-0"
+                    >
+                      <div className="flex items-baseline gap-2 md:w-32 shrink-0 text-brand-gold">
+                        <span className="text-4xl md:text-5xl font-serif">{item.date}</span>
+                        <span className="text-lg font-medium lowercase">{item.day}</span>
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-brand-ink mb-4">{item.title}</h3>
+                        <ul className="space-y-2">
+                          {item.details.map((detail, dIdx) => (
+                            <li key={dIdx} className="flex items-start gap-2 text-brand-muted">
+                              <span className="text-brand-gold mt-1.5 text-[10px]">●</span>
+                              <span className="leading-relaxed">{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </div>
-          </motion.div>
-
-          <motion.div 
-            {...fadeInUp}
-            className="flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm p-12 md:p-20 rounded-3xl border border-white/10 text-center w-full"
-          >
-            <h3 className="text-2xl font-serif mb-8 text-white">교육 상담 및 문의</h3>
-            <p className="text-brand-beige/60 text-sm mb-12 leading-relaxed">
-              아래 버튼을 클릭하여 문의 양식을 작성해 주시면<br />
-              확인 후 신속하게 답변해 드리겠습니다.
-            </p>
-            <a 
-              href="https://forms.gle/uLTsWWwC1Yp151FU6" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block bg-brand-gold text-white px-16 py-6 text-xs tracking-[0.3em] uppercase font-bold hover:bg-white hover:text-brand-ink transition-all duration-500 rounded-xl shadow-2xl"
-            >
-              문의하기
-            </a>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
     </motion.div>
   );
 }
