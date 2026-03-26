@@ -196,7 +196,7 @@ function HomePage() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/main1.jpeg" 
+            src="/main1.png" 
             alt="Spa Atmosphere" 
             className="w-full h-full object-cover brightness-75 scale-105 animate-slow-zoom"
             referrerPolicy="no-referrer"
