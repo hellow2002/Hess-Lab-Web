@@ -22,57 +22,203 @@ import {
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 
-const programs = [
+const programCategories = [
+  {
+    id: "preparation",
+    title: "준비맘 PROGRAM",
+    description: "건강한 임신을 준비하는 예비 산모를 위한 맞춤 케어",
+    image: "/program1.jpg",
+    basic: {
+      title: "수기 관리 회복",
+      description: "차갑고 긴장된 몸을 부드럽게 풀어 순환이 편안하게 이어지도록 돕는 수기 회복 프로그램",
+      price: "180,000",
+      time: "70분",
+      type: "베이직"
+    },
+    advanced: [
+      { title: "골반 구조 회복", description: "임신을 준비하는 몸의 기본 구조를 바로잡고, 골반과 중심 균형을 정돈하는 프로그램" },
+      { title: "해독 순환 회복", description: "환경 호르몬과 노폐물 배출을 도와 몸의 부담을 줄이고, 아기를 준비하기 전 가볍고 건강한 몸 상태를 만드는 프로그램" },
+      { title: "부종 · 체중 회복", description: "난임 시술 중 갑자기 붓고 체중이 늘어나는 몸의 변화를 순환과 대사 회복으로 관리하는 프로그램" }
+    ],
+    advancedPricing: [
+      { time: "90분", type: "솔루션", price: "240,000" },
+      { time: "120분", type: "인텐스", price: "300,000" }
+    ]
+  },
+  {
+    id: "prenatal",
+    title: "예비맘 PROGRAM",
+    description: "편안한 임신 기간과 건강한 출산을 위한 산전 케어",
+    image: "/program2.jpg",
+    basic: {
+      title: "수기 관리 회복",
+      description: "임신 전 몸의 순환과 균형을 부드럽게 정돈해 준비된 몸 상태를 만드는 수기 회복 프로그램",
+      price: "180,000",
+      time: "70분",
+      type: "베이직"
+    },
+    advanced: [
+      { title: "체형균형 회복", description: "환도, 꼬리뼈, 치골, 고관절, 허리 통증 개선 프로그램" },
+      { title: "하지부종 순환 회복", description: "급격하고 증가하는 부종 완화 프로그램" },
+      { title: "임신 중기 체중 컨트롤", description: "20주부터 만삭까지 계획적인 체중 컨트롤 프로그램" },
+      { title: "임신 후기 체중 컨트롤", description: "임신 후반 급격한 체중 증가 컨트롤 프로그램" },
+      { title: "피부균형 회복", description: "색소침착, 쥐젖, 기미, 튼살, 가려움, 소양증 개선 프로그램" },
+      { title: "수면 리듬 회복", description: "수면의 질 회복 프로그램" },
+      { title: "긴장·태교 회복", description: "긴장감과 불안감 완화 및 태교 프로그램" }
+    ],
+    advancedPricing: [
+      { time: "90분", type: "솔루션", price: "240,000" },
+      { time: "120분", type: "인텐스", price: "300,000" }
+    ]
+  },
+  {
+    id: "postpartum",
+    title: "출산맘 PROGRAM",
+    description: "출산 후 빠른 회복과 예전의 건강한 몸으로 되돌리는 산후 케어",
+    image: "/program3.jpg",
+    basic: {
+      title: "수기 관리 회복",
+      description: "출산 후 약해진 관절과 전신의 긴장을 풀어 움직임을 편하게 만드는 수기 회복 프로그램",
+      price: "180,000",
+      time: "70분",
+      type: "베이직"
+    },
+    advanced: [
+      { title: "부종 순환 회복", description: "출산 후 잘 안 빠지는 만성부종을 해결을 위한 근본적인 순환 프로그램" },
+      { title: "냉기 배출 회복", description: "출산 후 냉기·시림·쑤심의 문제 해결을 위한 냉기배출 프로그램" },
+      { title: "관절 기능 회복", description: "손목 발목 무릎처럼 출산 후 약해진 관절 기능 개선 프로그램" },
+      { title: "목·어깨 긴장 회복", description: "목·어깨를 펴주고, 상체의 긴장과 통증을 완화해주는 프로그램" },
+      { title: "코어·골반 회복", description: "출산으로 무너진 코어와 골반 중심을 다시 세우는 밸런스 프로그램" },
+      { title: "가슴 편안 회복", description: "젖몸살 완화와 흉곽 밸런스 및 가슴 수술 후 모유수유 준비 프로그램" }
+    ],
+    advancedPricing: [
+      { time: "90분", type: "솔루션", price: "240,000" },
+      { time: "120분", type: "인텐스", price: "300,000" }
+    ]
+  },
+  {
+    id: "parenting",
+    title: "육아맘·워킹맘 PROGRAM",
+    description: "지친 일상 속 온전한 휴식과 컨디션 회복을 위한 케어",
+    image: "/program4.jpg",
+    basic: {
+      title: "수기 관리 회복",
+      description: "반복된 자세와 피로로 굳어진 목·어깨·상체를 풀어 일상 컨디션을 회복하는 수기 프로그램",
+      price: "180,000",
+      time: "70분",
+      type: "베이직"
+    },
+    advanced: [
+      { title: "관절 부담 회복", description: "손목·어깨·허리처럼 반복 사용으로 쌓인 관절 부담을 풀어 움직임을 편하게 만드는 프로그램" },
+      { title: "피로 순환 회복", description: "수면 부족과 반복된 피로로 무거워진 몸을 순환과 따뜻함으로 풀어 하루 컨디션을 회복하는 프로그램" },
+      { title: "상체 긴장 회복", description: "아기 안기·수유로 굳어진 목·어깨·등의 긴장을 풀어 편안한 상체로 회복하는 프로그램" }
+    ],
+    advancedPricing: [
+      { time: "90분", type: "솔루션", price: "240,000" },
+      { time: "120분", type: "인텐스", price: "300,000" }
+    ]
+  },
+  {
+    id: "grandmother",
+    title: "친정맘 PROGRAM",
+    description: "오랜 시간 쌓인 피로를 풀고 활력을 되찾아주는 시니어 케어",
+    image: "/program5.jpg",
+    basic: {
+      title: "수기 관리 회복",
+      description: "오랜 피로와 긴장을 부드럽게 풀어 다시 편안하고 가벼운 몸으로 회복하는 수기 프로그램",
+      price: "180,000",
+      time: "70분",
+      type: "베이직"
+    },
+    advanced: [
+      { title: "갱년기 회복", description: "갱년기로 무너진 컨디션 균형을 회복하고 편안한 숙면을 돕는 프로그램" },
+      { title: "냉기 배출 회복", description: "출산 후 남은 시린 통증을 완화를 위해 몸의 냉기를 배출시키는 프로그램" },
+      { title: "관절 기능 회복", description: "약해진 관절 기능과 근육 긴장을 집중적으로 관리해 움직임의 편안함을 회복하는 프로그램" }
+    ],
+    advancedPricing: [
+      { time: "90분", type: "솔루션", price: "240,000" },
+      { time: "120분", type: "인텐스", price: "300,000" }
+    ]
+  },
+  {
+    id: "bodyspa",
+    title: "바디스파 PROGRAM",
+    description: "전신의 순환을 돕고 아름다운 바디 라인을 가꾸는 스파 케어",
+    image: "/program6.jpg",
+    basic: {
+      title: "컨디션 회복",
+      description: "쌓인 피로와 긴장을 풀어 몸의 기본 순환과 움직임을 편하게 만드는 프로그램",
+      price: "180,000",
+      time: "70분",
+      type: "베이직"
+    },
+    advanced: [
+      { 
+        title: "체형·순환 밸런스 회복", 
+        description: "무너진 체형과 순환 불균형을 집중적으로 정돈해 부종과 라인을 함께 개선하는 프로그램",
+        priceInfo: { time: "90분", type: "솔루션", price: "240,000" }
+      },
+      { 
+        title: "구조·라인 집중 회복", 
+        description: "흉곽·코어·골반까지 구조를 바로잡아 몸의 부피와 라인을 집중적으로 변화시키는 프로그램",
+        priceInfo: { time: "120분", type: "인텐스", price: "300,000" }
+      }
+    ],
+    advancedPricing: []
+  },
+  {
+    id: "addon",
+    title: "출산맘 Program+++",
+    description: "출산 후 특별히 관리가 필요한 부위를 위한 집중 추가 프로그램",
+    image: "/program7.jpg",
+    isAddon: true,
+    advanced: [
+      { title: "흉곽 관리", description: "벌어진 흉곽을 안정적으로 모아 상체 라인을 정돈하고 부피를 줄여주는 프로그램" },
+      { title: "복부 관리", description: "약해진 복부 중심을 잡아 몸의 축을 세우고 슬림한 복부 라인을 만드는 프로그램" },
+      { title: "골반 관리", description: "출산 후 벌어진 골반을 안정적으로 정돈해 하체 균형과 라인을 회복하는 프로그램" }
+    ],
+    advancedPricing: [
+      { time: "30분 추가", type: "+++", price: "100,000" }
+    ]
+  }
+];
+
+const featuredPrograms = [
   {
     id: 1,
-    category: "EVENT",
-    title: "[50%이벤트]-부분관리",
-    duration: "1시간",
-    details: [
-      "체형측정 및 분석 + 상담 (20분)",
-      "손목, 손가락/목, 어깨/발목, 종아리, 무릎 중 선택 관리 (40분)"
-    ],
-    originalPrice: "110,000",
-    discountPrice: "55,000",
-    discountRate: "50%",
-    image: "/program1.jpeg",
+    category: "PREPARATION",
+    title: "준비맘 PROGRAM",
+    duration: "70분",
+    details: ["수기 관리 회복", "차갑고 긴장된 몸을 부드럽게 풀어 순환이 편안하게 이어지도록 돕는 수기 회복 프로그램"],
+    originalPrice: "180,000",
+    discountPrice: "180,000",
+    discountRate: "베이직",
+    image: "/program1.jpg",
     icon: <Sparkles className="w-6 h-6" />
   },
   {
     id: 2,
-    category: "SIGNATURE",
-    title: "[70분수기관리]-첫방문30%할인+웰컴 기프트",
-    duration: "1시간 10분",
-    details: ["첫방문 1회 30% 할인", "웰컴 기프트백 증정"],
+    category: "PRENATAL",
+    title: "예비맘 PROGRAM",
+    duration: "70분",
+    details: ["수기 관리 회복", "임신 전 몸의 순환과 균형을 부드럽게 정돈해 준비된 몸 상태를 만드는 수기 회복 프로그램"],
     originalPrice: "180,000",
-    discountPrice: "126,000",
-    discountRate: "30%",
-    image: "/program2.jpeg",
+    discountPrice: "180,000",
+    discountRate: "베이직",
+    image: "/program2.jpg",
     icon: <Heart className="w-6 h-6" />
   },
   {
     id: 3,
-    category: "ENERGY",
-    title: "[90분에너지관리]-첫방문30%할인+웰컴 기프트",
-    duration: "1시간 30분",
-    details: ["첫방문 1회 30% 할인", "웰컴 기프트백 증정"],
-    originalPrice: "240,000",
-    discountPrice: "168,000",
-    discountRate: "30%",
-    image: "/program3.jpeg",
+    category: "POSTPARTUM",
+    title: "출산맘 PROGRAM",
+    duration: "70분",
+    details: ["수기 관리 회복", "출산 후 약해진 관절과 전신의 긴장을 풀어 움직임을 편하게 만드는 수기 회복 프로그램"],
+    originalPrice: "180,000",
+    discountPrice: "180,000",
+    discountRate: "베이직",
+    image: "/program3.jpg",
     icon: <Flower2 className="w-6 h-6" />
-  },
-  {
-    id: 4,
-    category: "SPECIAL",
-    title: "[120분스페셜관리]-첫방문30%할인+웰컴 기프트",
-    duration: "2시간",
-    details: ["첫방문 1회 30% 할인", "웰컴 기프트백 증정"],
-    originalPrice: "300,000",
-    discountPrice: "210,000",
-    discountRate: "30%",
-    image: "/program4.jpeg",
-    icon: <Sparkles className="w-6 h-6" />
   }
 ];
 
@@ -196,7 +342,7 @@ function HomePage() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/main1.png" 
+            src="/main1.jpg" 
             alt="Spa Atmosphere" 
             className="w-full h-full object-cover brightness-75 scale-105 animate-slow-zoom"
             referrerPolicy="no-referrer"
@@ -266,7 +412,7 @@ function HomePage() {
             </motion.div>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {programs.slice(0, 3).map((program, idx) => (
+            {featuredPrograms.slice(0, 3).map((program, idx) => (
               <motion.div 
                 key={program.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -278,16 +424,17 @@ function HomePage() {
                 <div className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-6">
                   <img src={program.image} alt={program.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-brand-ink/20"></div>
-                  <div className="absolute top-4 left-4 bg-brand-gold text-white text-[10px] px-2 py-1 rounded-sm font-bold">
-                    {program.discountRate} OFF
-                  </div>
                 </div>
                 <h3 className="text-xl font-serif mb-2">{program.title}</h3>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-brand-gold font-bold text-lg">{program.discountPrice}원</span>
-                  <span className="text-brand-muted line-through text-xs">{program.originalPrice}원</span>
+                <h4 className="text-lg font-bold text-brand-ink mb-2">{program.details[0]}</h4>
+                <p className="text-sm text-brand-muted mb-4 line-clamp-2">{program.details[1]}</p>
+                <div className="flex justify-between items-center pt-4 border-t border-brand-ink/5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] bg-brand-gold/10 text-brand-gold px-2 py-1 rounded-sm font-bold">{program.duration}</span>
+                    <span className="text-xs font-bold text-brand-gold">베이직</span>
+                  </div>
+                  <span className="text-xl font-bold text-brand-ink">{program.originalPrice}원</span>
                 </div>
-                <p className="text-xs text-brand-muted line-clamp-1">{program.details[0]}</p>
               </motion.div>
             ))}
           </div>
@@ -370,51 +517,90 @@ function ProgramsPage() {
             <motion.h2 {...fadeInUp} className="text-5xl md:text-6xl font-serif">Signature Care</motion.h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {programs.map((program, idx) => (
+          <div className="space-y-24">
+            {programCategories.map((category, idx) => (
               <motion.div 
-                key={program.id}
+                key={category.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
+                transition={{ delay: 0.1 }}
                 className="group bg-brand-beige/20 rounded-3xl overflow-hidden border border-brand-ink/5 hover:border-brand-gold/20 transition-all duration-500"
               >
                 <div className="flex flex-col md:flex-row">
                   <div className="md:w-2/5 relative aspect-square md:aspect-auto">
                     <img 
-                      src={program.image} 
-                      alt={program.title} 
+                      src={category.image} 
+                      alt={category.title} 
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-brand-ink/10 group-hover:bg-brand-ink/30 transition-colors duration-500"></div>
                   </div>
-                  <div className="md:w-3/5 p-8 flex flex-col justify-between">
-                    <div>
-                      <div className="flex justify-between items-start mb-4">
-                        <span className="text-[10px] tracking-widest text-brand-gold font-bold uppercase">{program.category}</span>
-                        <span className="text-[10px] bg-brand-gold/10 text-brand-gold px-2 py-1 rounded-sm font-bold">시술시간 {program.duration}</span>
+                  <div className="md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                    <div className="mb-8">
+                      <h3 className="text-3xl font-serif mb-4 group-hover:text-brand-gold transition-colors">{category.title}</h3>
+                      <p className="text-brand-muted">{category.description}</p>
+                    </div>
+
+                    {!category.isAddon && category.basic && (
+                      <div className="mb-8 bg-white p-6 rounded-2xl border border-brand-ink/5">
+                        <div className="flex justify-between items-start mb-2">
+                          <h4 className="text-lg font-bold text-brand-ink">{category.basic.title}</h4>
+                        </div>
+                        <p className="text-sm text-brand-muted mb-4">{category.basic.description}</p>
+                        <div className="flex justify-between items-center pt-4 border-t border-brand-ink/5">
+                          <div className="flex items-center gap-2">
+                            <span className="text-[10px] bg-brand-gold/10 text-brand-gold px-2 py-1 rounded-sm font-bold">{category.basic.time}</span>
+                            <span className="text-xs font-bold text-brand-gold">{category.basic.type}</span>
+                          </div>
+                          <span className="text-xl font-bold text-brand-ink">{category.basic.price}원</span>
+                        </div>
                       </div>
-                      <h3 className="text-xl font-serif mb-4 group-hover:text-brand-gold transition-colors">{program.title}</h3>
-                      <ul className="space-y-2 mb-8">
-                        {program.details.map((detail, i) => (
-                          <li key={i} className="text-sm text-brand-muted flex items-start gap-2">
-                            <div className="w-1 h-1 rounded-full bg-brand-gold mt-2 flex-shrink-0"></div>
-                            {detail}
+                    )}
+
+                    <div className="bg-white p-6 rounded-2xl border border-brand-ink/5">
+                      <h4 className="text-sm font-bold text-brand-ink mb-4 uppercase tracking-widest">{category.isAddon ? "추가 프로그램" : "심화 프로그램"}</h4>
+                      <ul className="space-y-4 mb-6">
+                        {category.advanced.map((adv, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                            <div className="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></div>
+                            <div className="flex-1">
+                              <span className="block font-bold text-brand-ink text-sm mb-1">{adv.title}</span>
+                              <span className="block text-xs text-brand-muted">{adv.description}</span>
+                              {adv.priceInfo && (
+                                <div className="flex justify-between items-center bg-brand-beige/20 p-3 rounded-lg mt-3">
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-[10px] bg-brand-gold/10 text-brand-gold px-2 py-1 rounded-sm font-bold">{adv.priceInfo.time}</span>
+                                    <span className="text-xs font-bold text-brand-gold">{adv.priceInfo.type}</span>
+                                  </div>
+                                  <span className="text-sm font-bold text-brand-ink">{adv.priceInfo.price}원</span>
+                                </div>
+                              )}
+                            </div>
                           </li>
                         ))}
                       </ul>
-                    </div>
-                    <div className="pt-6 border-t border-brand-ink/5 flex items-end justify-between">
-                      <div>
-                        <p className="text-[10px] text-brand-muted line-through mb-1">{program.originalPrice}원</p>
-                        <div className="flex items-center gap-2">
-                          <span className="text-brand-gold font-bold text-sm">{program.discountRate}</span>
-                          <span className="text-2xl font-bold text-brand-ink">{program.discountPrice}원</span>
+                      {category.advancedPricing && category.advancedPricing.length > 0 && (
+                        <div className="pt-4 border-t border-brand-ink/5 space-y-2">
+                          {category.advancedPricing.map((price, i) => (
+                            <div key={i} className="flex flex-col">
+                              <div className="flex justify-between items-center">
+                                <div className="flex items-center gap-2">
+                                  <span className="text-[10px] bg-brand-gold/10 text-brand-gold px-2 py-1 rounded-sm font-bold">{price.time}</span>
+                                  <span className="text-xs font-bold text-brand-gold">{price.type}</span>
+                                </div>
+                                <span className="text-lg font-bold text-brand-ink">{price.price}원</span>
+                              </div>
+                              {(price.type === "인텐스" || price.type === "+++") && (
+                                <span className="text-[10px] text-brand-muted text-right mt-1">*컨디션별 1가지 솔루션 맞춤 관리</span>
+                              )}
+                            </div>
+                          ))}
                         </div>
-                      </div>
+                      )}
                     </div>
+
                   </div>
                 </div>
               </motion.div>
@@ -545,66 +731,6 @@ function LocationPage() {
   );
 }
 
-function ReservationPage() {
-  return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="pt-32"
-    >
-      <section className="pt-12 pb-32 bg-white">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <motion.span {...fadeInUp} className="text-brand-gold text-[11px] tracking-[0.3em] uppercase mb-4 block">Reservation</motion.span>
-            <motion.h2 {...fadeInUp} className="text-5xl font-serif">Book Your Session</motion.h2>
-          </div>
-
-          <motion.form 
-            {...fadeInUp}
-            className="space-y-8"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-2">
-                <label className="text-[10px] tracking-widest uppercase opacity-60">Name</label>
-                <input type="text" className="w-full bg-brand-beige/30 border-b border-brand-ink/10 py-3 focus:border-brand-gold outline-none transition-colors" placeholder="성함을 입력해주세요" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] tracking-widest uppercase opacity-60">Phone</label>
-                <input type="tel" className="w-full bg-brand-beige/30 border-b border-brand-ink/10 py-3 focus:border-brand-gold outline-none transition-colors" placeholder="연락처를 입력해주세요" />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-[10px] tracking-widest uppercase opacity-60">Program</label>
-              <select className="w-full bg-brand-beige/30 border-b border-brand-ink/10 py-3 focus:border-brand-gold outline-none transition-colors appearance-none">
-                <option>프로그램을 선택해주세요</option>
-                {programs.map(p => (
-                  <option key={p.id}>{p.title}</option>
-                ))}
-              </select>
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-[10px] tracking-widest uppercase opacity-60">Message</label>
-              <textarea className="w-full bg-brand-beige/30 border-b border-brand-ink/10 py-3 focus:border-brand-gold outline-none transition-colors h-32 resize-none" placeholder="문의사항이나 특별히 관리받고 싶은 부위가 있다면 적어주세요"></textarea>
-            </div>
-
-            <button className="w-full bg-brand-ink text-brand-beige py-6 text-xs tracking-[0.3em] uppercase font-bold hover:bg-brand-gold transition-colors duration-500">
-              Request Reservation
-            </button>
-            <p className="text-center text-[10px] text-brand-muted tracking-widest">
-              * 예약 신청 후 담당 테라피스트가 확인 전화를 드립니다.
-            </p>
-          </motion.form>
-        </div>
-      </section>
-    </motion.div>
-  );
-}
-
 const prenatalSchedule = [
   {
     date: "3/30",
@@ -700,7 +826,7 @@ function AcademyPage() {
                 className="order-2 md:order-1"
               >
                 <img 
-                  src="/professional_training1.jpeg" 
+                  src="/professional_training1.jpg" 
                   alt="Professional Training" 
                   className="rounded-3xl shadow-xl w-full h-[400px] md:h-[500px] object-cover" 
                   referrerPolicy="no-referrer" 
@@ -817,7 +943,7 @@ function AcademyPage() {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <img 
-                  src="/prenatal_class1.jpeg" 
+                  src="/prenatal_class1.jpg" 
                   alt="Prenatal Class" 
                   className="rounded-3xl shadow-xl w-full h-[400px] md:h-[600px] object-cover" 
                   referrerPolicy="no-referrer" 
@@ -879,19 +1005,11 @@ export default function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/programs" element={<ProgramsPage />} />
             <Route path="/location" element={<LocationPage />} />
-            <Route path="/reservation" element={<ReservationPage />} />
             <Route path="/academy" element={<AcademyPage />} />
           </Routes>
         </main>
 
         <Footer />
-
-        {/* Floating Reservation Button (Mobile) */}
-        <div className="fixed bottom-6 right-6 z-50 md:hidden">
-          <Link to="/reservation" className="w-16 h-16 rounded-full bg-brand-gold text-white flex items-center justify-center shadow-2xl">
-            <ChevronRight className="w-6 h-6" />
-          </Link>
-        </div>
       </div>
     </Router>
   );
