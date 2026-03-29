@@ -319,10 +319,6 @@ function Footer() {
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p>© 2026 HESS LAB. All Rights Reserved.</p>
-          <div className="flex gap-8">
-            <a href="#" className="hover:text-brand-beige">Privacy Policy</a>
-            <a href="#" className="hover:text-brand-beige">Terms of Service</a>
-          </div>
         </div>
       </div>
     </footer>
@@ -430,10 +426,10 @@ function HomePage() {
                 <p className="text-sm text-brand-muted mb-4 line-clamp-2">{program.details[1]}</p>
                 <div className="flex justify-between items-center pt-4 border-t border-brand-ink/5">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] bg-brand-gold/10 text-brand-gold px-2 py-1 rounded-sm font-bold">{program.duration}</span>
-                    <span className="text-xs font-bold text-brand-gold">베이직</span>
+                    <span className="text-sm md:text-xl bg-brand-gold/10 text-brand-gold px-2 py-1 rounded-sm font-bold w-14 md:w-auto text-center">{program.duration}</span>
+                    <span className="text-sm md:text-xl font-bold text-brand-gold">{program.discountRate}</span>
                   </div>
-                  <span className="text-xl font-bold text-brand-ink">{program.originalPrice}원</span>
+                  <span className="text-sm md:text-xl font-bold text-brand-ink text-right">{program.originalPrice}원</span>
                 </div>
               </motion.div>
             ))}
@@ -551,33 +547,35 @@ function ProgramsPage() {
                         <p className="text-sm text-brand-muted mb-4">{category.basic.description}</p>
                         <div className="flex justify-between items-center pt-4 border-t border-brand-ink/5">
                           <div className="flex items-center gap-2">
-                            <span className="text-[10px] bg-brand-gold/10 text-brand-gold px-2 py-1 rounded-sm font-bold">{category.basic.time}</span>
-                            <span className="text-xs font-bold text-brand-gold">{category.basic.type}</span>
+                            <span className="text-sm md:text-xl bg-brand-gold/10 text-brand-gold px-2 py-1 rounded-sm font-bold w-14 md:w-auto text-center">{category.basic.time}</span>
+                            <span className="text-sm md:text-xl font-bold text-brand-gold">{category.basic.type}</span>
                           </div>
-                          <span className="text-xl font-bold text-brand-ink">{category.basic.price}원</span>
+                          <span className="text-sm md:text-xl font-bold text-brand-ink text-right">{category.basic.price}원</span>
                         </div>
                       </div>
                     )}
 
                     <div className="bg-white p-6 rounded-2xl border border-brand-ink/5">
-                      <h4 className="text-sm font-bold text-brand-ink mb-4 uppercase tracking-widest">{category.isAddon ? "추가 프로그램" : "심화 프로그램"}</h4>
+                      <h4 className="text-lg font-bold text-brand-ink mb-4">{category.isAddon ? "추가 프로그램" : "심화 프로그램"}</h4>
                       <ul className="space-y-4 mb-6">
                         {category.advanced.map((adv, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></div>
-                            <div className="flex-1">
-                              <span className="block font-bold text-brand-ink text-sm mb-1">{adv.title}</span>
-                              <span className="block text-xs text-brand-muted">{adv.description}</span>
-                              {adv.priceInfo && (
-                                <div className="flex justify-between items-center bg-brand-beige/20 p-3 rounded-lg mt-3">
-                                  <div className="flex items-center gap-2">
-                                    <span className="text-[10px] bg-brand-gold/10 text-brand-gold px-2 py-1 rounded-sm font-bold">{adv.priceInfo.time}</span>
-                                    <span className="text-xs font-bold text-brand-gold">{adv.priceInfo.type}</span>
-                                  </div>
-                                  <span className="text-sm font-bold text-brand-ink">{adv.priceInfo.price}원</span>
-                                </div>
-                              )}
+                          <li key={i} className="flex flex-col">
+                            <div className="flex items-start gap-3">
+                              <div className="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></div>
+                              <div className="flex-1">
+                                <span className="block font-bold text-brand-ink text-sm mb-1">{adv.title}</span>
+                                <span className="block text-sm text-brand-muted">{adv.description}</span>
+                              </div>
                             </div>
+                            {adv.priceInfo && (
+                              <div className="flex justify-between items-center pt-4 border-t border-brand-ink/5 mt-4">
+                                <div className="flex items-center gap-2">
+                                  <span className="text-sm md:text-xl bg-brand-gold/10 text-brand-gold px-2 py-1 rounded-sm font-bold w-14 md:w-auto text-center">{adv.priceInfo.time}</span>
+                                  <span className="text-sm md:text-xl font-bold text-brand-gold">{adv.priceInfo.type}</span>
+                                </div>
+                                <span className="text-sm md:text-xl font-bold text-brand-ink text-right">{adv.priceInfo.price}원</span>
+                              </div>
+                            )}
                           </li>
                         ))}
                       </ul>
@@ -587,10 +585,10 @@ function ProgramsPage() {
                             <div key={i} className="flex flex-col">
                               <div className="flex justify-between items-center">
                                 <div className="flex items-center gap-2">
-                                  <span className="text-[10px] bg-brand-gold/10 text-brand-gold px-2 py-1 rounded-sm font-bold">{price.time}</span>
-                                  <span className="text-xs font-bold text-brand-gold">{price.type}</span>
+                                  <span className="text-sm md:text-xl bg-brand-gold/10 text-brand-gold px-2 py-1 rounded-sm font-bold w-14 md:w-auto text-center">{price.time}</span>
+                                  <span className="text-sm md:text-xl font-bold text-brand-gold">{price.type}</span>
                                 </div>
-                                <span className="text-lg font-bold text-brand-ink">{price.price}원</span>
+                                <span className="text-sm md:text-xl font-bold text-brand-ink text-right">{price.price}원</span>
                               </div>
                               {(price.type === "인텐스" || price.type === "+++") && (
                                 <span className="text-[10px] text-brand-muted text-right mt-1">*컨디션별 1가지 솔루션 맞춤 관리</span>
