@@ -263,15 +263,14 @@ function Navigation() {
             </div>
           </div>
           
-          <div className="hidden md:flex items-center gap-6">
-            <a href="https://naver.me/5BwIqWV7" target="_blank" rel="noreferrer" className={`text-[11px] font-medium tracking-widest uppercase border px-6 py-2 rounded-full transition-colors ${!isScrolled && isHome ? "text-white border-white/20 hover:bg-white hover:text-brand-ink" : "text-brand-ink border-brand-ink/20 hover:bg-brand-ink hover:text-brand-beige"}`}>
-              Naver Place
+          <div className="flex items-center gap-4 md:gap-6">
+            <a href="https://naver.me/5BwIqWV7" target="_blank" rel="noreferrer" className={`text-[11px] font-medium tracking-widest uppercase border px-4 md:px-6 py-2 rounded-full transition-colors ${!isScrolled && isHome ? "text-white border-white/20 hover:bg-white hover:text-brand-ink" : "text-brand-ink border-brand-ink/20 hover:bg-brand-ink hover:text-brand-beige"}`}>
+              예약하기
             </a>
+            <button className={`md:hidden ${!isScrolled && isHome ? "text-white" : "text-brand-ink"}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              {mobileMenuOpen ? <X /> : <Menu />}
+            </button>
           </div>
-
-          <button className={`md:hidden ${!isScrolled && isHome ? "text-white" : "text-brand-ink"}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X /> : <Menu />}
-          </button>
         </div>
       </nav>
 
@@ -298,7 +297,22 @@ function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-12 mb-20">
           <div className="text-center md:text-left">
             <h2 className="text-brand-beige text-2xl font-serif tracking-[0.2em] mb-4">HESS LAB</h2>
-            <p>Premium Maternity Wellness Center</p>
+            <p className="mb-8">Premium Maternity Wellness Center</p>
+            <div className="flex flex-col gap-2 normal-case tracking-normal text-xs text-brand-beige/50">
+              <p className="flex flex-wrap justify-center md:justify-start gap-x-3 gap-y-1">
+                <span><strong className="font-medium text-brand-beige/70">대표자</strong> 이진희</span>
+                <span className="hidden md:inline text-brand-beige/20">|</span>
+                <span><strong className="font-medium text-brand-beige/70">사업자등록번호</strong> 202-30-04889</span>
+              </p>
+              <p className="flex flex-wrap justify-center md:justify-start gap-x-3 gap-y-1">
+                <span><strong className="font-medium text-brand-beige/70">주소</strong> 서울 강남구 봉은사로24길 8 3층</span>
+              </p>
+              <p className="flex flex-wrap justify-center md:justify-start gap-x-3 gap-y-1">
+                <span><strong className="font-medium text-brand-beige/70">전화번호</strong> 02-566-1279</span>
+                <span className="hidden md:inline text-brand-beige/20">|</span>
+                <span><strong className="font-medium text-brand-beige/70">이메일</strong> hesslab2025@gmail.com</span>
+              </p>
+            </div>
           </div>
           
           <div className="flex gap-12">
@@ -460,7 +474,7 @@ function AboutPage() {
             <p className="text-brand-muted leading-relaxed mb-8 max-w-md">
               헤스랩(Hess Lab)은 임신과 출산이라는 경이로운 여정을 걷는<br />
               여성들을 위한 프리미엄 산전·산후 전문 스파입니다.<br />
-              단순한 마사지를 넘어, 생명의 탄생을 준비하고 회복하는 모든 과정에서 최상의 웰니스를 경험하실 수 있도록 설계되었습니다.
+              단순한 관리를 넘어, 생명의 탄생을 준비하고 회복하는 모든 과정에서 최상의 웰니스를 경험하실 수 있도록 설계되었습니다.
             </p>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-4">
@@ -768,10 +782,10 @@ const prenatalSchedule = [
   {
     date: "4/4",
     day: "sat",
-    title: "남편이 해주는 마사지",
+    title: "남편이 해주는 관리",
     details: [
       "부종과 통증, 불면 개선",
-      "신체 포인트별 마사지 테크닉"
+      "신체 포인트별 관리 테크닉"
     ]
   }
 ];
@@ -931,7 +945,7 @@ function AcademyPage() {
                     헤스랩 회복센터는 수많은 산모님들을 케어해 온 전문적인 노하우를 바탕으로, 임신 기간 동안 겪게 되는 신체 변화의 원인을 정확히 이해하고 현명하게 대처할 수 있는 실질적인 솔루션을 제공하고자 <strong className="text-brand-gold font-medium">'진짜맘카페' 산모교실</strong>을 준비했습니다.
                   </p>
                   <p>
-                    단순한 이론 교육을 넘어, 집에서도 쉽게 따라 할 수 있는 홈케어 관리법과 남편과 함께하는 마사지 테크닉까지. 건강한 임신 기간과 행복한 출산, 그리고 완벽한 산후 회복을 위한 헤스랩만의 특별한 노하우를 만나보세요.
+                    단순한 이론 교육을 넘어, 집에서도 쉽게 따라 할 수 있는 홈케어 관리법과 남편과 함께하는 관리 테크닉까지. 건강한 임신 기간과 행복한 출산, 그리고 완벽한 산후 회복을 위한 헤스랩만의 특별한 노하우를 만나보세요.
                   </p>
                 </div>
               </motion.div>
@@ -951,7 +965,7 @@ function AcademyPage() {
 
             <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-brand-ink/5">
               <div className="bg-brand-ink text-brand-beige py-4 text-center font-serif text-xl">
-                클래스 스케줄
+                클래스 주제
               </div>
               <div className="p-8 md:p-12">
                 <div className="space-y-8">
@@ -962,12 +976,8 @@ function AcademyPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: idx * 0.1 }}
-                      className="flex flex-col md:flex-row gap-6 md:gap-12 pb-8 border-b border-brand-ink/10 last:border-0 last:pb-0"
+                      className="pb-8 border-b border-brand-ink/10 last:border-0 last:pb-0"
                     >
-                      <div className="flex items-baseline gap-2 md:w-32 shrink-0 text-brand-gold">
-                        <span className="text-4xl md:text-5xl font-serif">{item.date}</span>
-                        <span className="text-lg font-medium lowercase">{item.day}</span>
-                      </div>
                       <div>
                         <h3 className="text-xl font-bold text-brand-ink mb-4">{item.title}</h3>
                         <ul className="space-y-2">
@@ -981,6 +991,18 @@ function AcademyPage() {
                       </div>
                     </motion.div>
                   ))}
+                </div>
+
+                <div className="mt-16 pt-12 border-t border-brand-ink/10 text-center">
+                  <p className="text-brand-muted mb-6">자세한 일정은 인스타그램에서 확인해 주세요.</p>
+                  <a 
+                    href="https://www.instagram.com/thelife.therapy" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-brand-ink text-brand-beige px-8 py-4 rounded-full text-sm tracking-widest uppercase hover:bg-brand-gold transition-colors duration-300"
+                  >
+                    Instagram 가기
+                  </a>
                 </div>
               </div>
             </div>
