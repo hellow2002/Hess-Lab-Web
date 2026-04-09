@@ -20,7 +20,7 @@ import {
   Mail
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, useSearchParams } from "react-router-dom";
 
 const programCategories = [
   {
@@ -1103,7 +1103,15 @@ function AcademyPage() {
 }
 
 function EventPage() {
+  const [searchParams] = useSearchParams();
+  const branchParam = searchParams.get('branch');
   const [activeTab, setActiveTab] = useState<'taejeon' | 'siheung'>('taejeon');
+
+  useEffect(() => {
+    if (branchParam === 'siheung' || branchParam === 'taejeon') {
+      setActiveTab(branchParam as 'taejeon' | 'siheung');
+    }
+  }, [branchParam]);
 
   const tabImages = {
     taejeon: {
