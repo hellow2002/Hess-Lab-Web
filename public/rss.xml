@@ -29,5 +29,11 @@
       <description>헤스랩의 진심을 담은 약속 섹션과 대표 소개 레이아웃이 새롭게 단장되었습니다.</description>
       <pubDate>Thu, 09 Apr 2026 14:00:00 +0900</pubDate>
     </item>
+    <item>
+      <title>헤스랩 접속 및 지점별 QR 시스템 최적화</title>
+      <link>https://hesslab.co.kr/event</link>
+      <description>지점별 QR 코드를 통한 직접 접속 기능이 활성화되었으며, 모든 페이지의 접속 안정성이 개선되었습니다.</description>
+      <pubDate>Thu, 09 Apr 2026 15:30:00 +0900</pubDate>
+    </item>
   </channel>
 </rss>
