@@ -260,6 +260,7 @@ function Navigation() {
               <Link to="/programs" className="hover-underline">PROGRAM</Link>
               <Link to="/location" className="hover-underline">LOCATION</Link>
               <Link to="/academy" className="hover-underline">ACADEMY</Link>
+              <Link to="/event" className="hover-underline">EVENT</Link>
             </div>
           </div>
           
@@ -284,6 +285,7 @@ function Navigation() {
           <Link to="/programs">PROGRAM</Link>
           <Link to="/location">LOCATION</Link>
           <Link to="/academy">ACADEMY</Link>
+          <Link to="/event">EVENT</Link>
         </motion.div>
       )}
     </>
@@ -322,6 +324,7 @@ function Footer() {
               <Link to="/programs" className="hover:text-brand-beige">PROGRAM</Link>
               <Link to="/location" className="hover:text-brand-beige">LOCATION</Link>
               <Link to="/academy" className="hover:text-brand-beige">ACADEMY</Link>
+              <Link to="/event" className="hover:text-brand-beige">EVENT</Link>
             </div>
             <div className="flex flex-col gap-4">
               <span className="text-brand-beige/40">Social</span>
@@ -452,40 +455,6 @@ function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Promise Section */}
-      <section className="py-40 relative overflow-hidden bg-brand-ink text-brand-beige">
-        <div className="absolute inset-0 opacity-10">
-          <img 
-            src="https://images.unsplash.com/photo-1544161515-436cefb657f8?q=80&w=2070&auto=format&fit=crop" 
-            className="w-full h-full object-cover"
-            alt="Background"
-            referrerPolicy="no-referrer"
-          />
-        </div>
-        <div className="max-w-6xl mx-auto px-6 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="space-y-12"
-          >
-            <div className="space-y-4">
-              <p className="text-xl md:text-2xl font-light tracking-wide leading-relaxed">
-                이미 다 해봤는데도, 아직 해결되지 않았다면<br />
-                <span className="font-serif italic text-brand-gold">마지막은 헤스랩입니다.</span>
-              </p>
-            </div>
-            
-            <div className="w-12 h-[1px] bg-brand-gold/50 mx-auto"></div>
-
-            <h3 className="text-3xl md:text-5xl font-serif leading-tight break-keep">
-              “몸이 정말 달라졌다고 말할 수 있을 때까지,<br />
-              우리는 당신 곁에 남아 있습니다.”
-            </h3>
-          </motion.div>
-        </div>
-      </section>
     </motion.div>
   );
 }
@@ -549,6 +518,32 @@ function AboutPage() {
         </div>
       </section>
 
+      {/* Promise Section */}
+      <section className="py-40 relative overflow-hidden bg-brand-ink text-center">
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-12"
+          >
+            <div className="space-y-4">
+              <p className="text-xl md:text-2xl font-light tracking-wide leading-relaxed text-brand-muted">
+                이미 다 해봤는데도, 아직 해결되지 않았다면<br />
+                <span className="font-serif italic text-brand-gold">마지막은 헤스랩입니다.</span>
+              </p>
+            </div>
+            
+            <div className="w-12 h-[1px] bg-brand-gold/50 mx-auto"></div>
+
+            <h3 className="text-3xl md:text-5xl font-serif leading-tight text-brand-beige break-keep">
+              “몸이 정말 달라졌다고 말할 수 있을 때까지,<br />
+              우리는 당신 곁에 남아 있습니다.”
+            </h3>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Founder Section */}
       <section className="py-32 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -599,32 +594,6 @@ function AboutPage() {
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Promise Section */}
-      <section className="py-40 relative overflow-hidden bg-brand-beige text-center">
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="space-y-12"
-          >
-            <div className="space-y-4">
-              <p className="text-xl md:text-2xl font-light tracking-wide leading-relaxed text-brand-muted">
-                이미 다 해봤는데도, 아직 해결되지 않았다면<br />
-                <span className="font-serif italic text-brand-gold">마지막은 헤스랩입니다.</span>
-              </p>
-            </div>
-            
-            <div className="w-12 h-[1px] bg-brand-gold/50 mx-auto"></div>
-
-            <h3 className="text-3xl md:text-5xl font-serif leading-tight text-brand-ink break-keep">
-              “몸이 정말 달라졌다고 말할 수 있을 때까지,<br />
-              우리는 당신 곁에 남아 있습니다.”
-            </h3>
-          </motion.div>
         </div>
       </section>
     </motion.div>
@@ -1139,19 +1108,19 @@ function EventPage() {
   const tabImages = {
     taejeon: {
       representative: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop",
-      body: "/program6.jpg",
-      head: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=1974&auto=format&fit=crop",
-      face: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2070&auto=format&fit=crop",
-      prenatal: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2070&auto=format&fit=crop",
+      body: "/program2.jpg",
+      head: "/event2.jpg",
+      face: "/event1.jpg",
+      prenatal: "/event3.jpg",
       growth: "https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?q=80&w=2069&auto=format&fit=crop"
     },
     siheung: {
       representative: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2070&auto=format&fit=crop",
-      body: "/program6.jpg",
-      head: "https://images.unsplash.com/photo-1544161515-436cefb657f8?q=80&w=2070&auto=format&fit=crop",
-      face: "https://images.unsplash.com/photo-1512678080530-7760d81faba6?q=80&w=2070&auto=format&fit=crop",
-      prenatal: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop",
-      growth: "https://images.unsplash.com/photo-1502086223501-7ea244394582?q=80&w=2032&auto=format&fit=crop"
+      body: "/program2.jpg",
+      head: "/event2.jpg",
+      face: "/event1.jpg",
+      prenatal: "/event3.jpg",
+      growth: "https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?q=80&w=2069&auto=format&fit=crop"
     }
   };
 
@@ -1166,29 +1135,83 @@ function EventPage() {
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <h3 className="text-2xl md:text-3xl font-serif mb-6">“내 몸에 필요한 회복을 찾는 곳”</h3>
-        <p className="text-brand-gold tracking-[0.2em] font-medium mb-4">바디스파 · 헤드스파 · 페이스관리 · 산전산후</p>
-        <p className="text-brand-muted leading-relaxed">
-          일반 여성부터 남성, <br />
-          임신과 출산 시기의 몸까지 <br />
-          편안하게 받을 수 있는 헤스랩
-        </p>
+        <h3 className="text-lg sm:text-2xl md:text-3xl font-serif mb-6 whitespace-nowrap">“내 몸에 필요한 회복을 찾는 곳”</h3>
+        <p className="text-brand-gold tracking-[0.2em] font-medium mb-4">바디스파 · 헤드스파 · 페이스 관리 · 산전산후 · 성장판</p>
       </motion.div>
 
-      {/* Representative Image */}
+      {/* Representative HESS LAB Logo Section */}
       <motion.div 
         key={`rep-${activeTab}`}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl mb-24"
+        className="relative py-24 px-6 rounded-3xl overflow-hidden shadow-sm mb-24 bg-brand-beige/30 border border-brand-gold/10 flex flex-col items-center justify-center text-center"
       >
-        <img 
-          src={currentImages.representative} 
-          alt="Hess Lab Representative" 
-          className="w-full h-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute inset-0 bg-brand-ink/10"></div>
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+          <div className="w-full h-full bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]"></div>
+        </div>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="relative z-10 flex flex-col items-center"
+        >
+          <span className="text-brand-gold text-[10px] tracking-[0.5em] uppercase mb-6 block">Premium Wellness Lab</span>
+          <h2 className="text-6xl md:text-8xl font-serif tracking-[0.3em] text-brand-ink mb-8">HESS LAB</h2>
+          
+          <div className="space-y-4 mb-8">
+            <p className="text-brand-gold font-serif text-3xl md:text-4xl tracking-tight flex items-center justify-center gap-1">
+              <span className="font-sans font-light">{activeTab === 'taejeon' ? '5' : '6'}</span>
+              <span>월 오픈 예정</span>
+            </p>
+            <p className="text-brand-muted text-sm md:text-base tracking-wide max-w-xs md:max-w-none">
+              {activeTab === 'taejeon' ? '경기도 광주시 태전동2길 23' : '경기도 시흥시 능곡군자1길 82 1층'}
+            </p>
+          </div>
+
+          <div className="w-24 h-[1px] bg-brand-gold/30 mx-auto mb-6"></div>
+          <p className="text-brand-muted text-[10px] tracking-[0.2em] uppercase">Recovery & Balance</p>
+        </motion.div>
+
+        {/* Decorative elements */}
+        <div className="absolute top-8 left-8 w-12 h-12 border-t border-l border-brand-gold/20"></div>
+        <div className="absolute bottom-8 right-8 w-12 h-12 border-b border-r border-brand-gold/20"></div>
+      </motion.div>
+
+      {/* WHY HESSLAB Section (Moved) */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-brand-beige/50 rounded-[40px] p-12 md:p-20 text-center mb-24"
+      >
+        <span className="text-brand-gold text-[11px] tracking-[0.3em] uppercase mb-6 block">WHY HESSLAB</span>
+        <div className="max-w-2xl mx-auto space-y-6 text-brand-ink leading-relaxed mb-12">
+          <p className="break-keep">
+            헤스랩은 잠깐의 시원함보다 <br />
+            몸의 순환, 긴장, 붓기, 컨디션을 함께 보며 <br />
+            지금 필요한 방향의 관리를 제안합니다.
+          </p>
+          <p className="break-keep">
+            바디, 헤드, 페이스, 산전산후, 성장판까지 <br />
+            한 사람의 몸 상태에 맞춰 <br />
+            편안한 회복을 돕습니다.
+          </p>
+        </div>
+        <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-8 text-sm font-medium">
+          <div className="flex items-start md:items-center justify-center gap-3">
+            <div className="w-1.5 h-1.5 rounded-full bg-brand-gold mt-[0.55rem] md:mt-0 shrink-0"></div>
+            <span className="text-left md:text-center break-keep">몸 상태에 맞춘 관리</span>
+          </div>
+          <div className="flex items-start md:items-center justify-center gap-3">
+            <div className="w-1.5 h-1.5 rounded-full bg-brand-gold mt-[0.55rem] md:mt-0 shrink-0"></div>
+            <span className="text-left md:text-center break-keep">바디부터 산전산후까지 폭넓은 케어</span>
+          </div>
+          <div className="flex items-start md:items-center justify-center gap-3">
+            <div className="w-1.5 h-1.5 rounded-full bg-brand-gold mt-[0.55rem] md:mt-0 shrink-0"></div>
+            <span className="text-left md:text-center break-keep">편안함 그 이상을 생각하는 테라피</span>
+          </div>
+        </div>
       </motion.div>
 
       {/* Selection Section */}
@@ -1197,27 +1220,27 @@ function EventPage() {
         <div className="grid gap-12">
           {[
             {
-              title: "1) 바디스파",
+              title: "바디스파",
               desc: "붓기, 피로, 순환, 뭉침 완화를 위한 전신 중심 테라피",
               img: currentImages.body
             },
             {
-              title: "2) 헤드스파",
+              title: "헤드스파",
               desc: "두피 답답함과 목 주변 긴장을 편안하게 풀어주는 헤드 케어",
               img: currentImages.head
             },
             {
-              title: "3) 페이스관리",
+              title: "페이스 관리",
               desc: "얼굴 붓기와 피부 컨디션을 고려한 섬세한 페이스 케어",
               img: currentImages.face
             },
             {
-              title: "4) 산전산후",
+              title: "산전산후",
               desc: "임신과 출산으로 달라진 몸의 흐름을 고려한 전문 회복 관리",
               img: currentImages.prenatal
             },
             {
-              title: "5) 성장판 케어",
+              title: "성장판 케어",
               desc: "성장하는 아이들의 성장판을 위한 케어",
               img: currentImages.growth
             }
@@ -1229,7 +1252,7 @@ function EventPage() {
               className="flex flex-col gap-4 items-center text-center"
             >
               <div className="max-w-2xl">
-                <h5 className="text-xl font-bold text-brand-ink mb-2">{item.title}</h5>
+                <h5 className="text-2xl md:text-3xl font-serif text-brand-ink mb-2">{item.title}</h5>
                 <p className="text-brand-muted text-sm leading-relaxed mb-6">{item.desc}</p>
               </div>
               <div className="w-full aspect-video rounded-3xl overflow-hidden shadow-xl">
@@ -1239,42 +1262,6 @@ function EventPage() {
           ))}
         </div>
       </div>
-
-      {/* WHY HESSLAB Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="bg-brand-beige/50 rounded-[40px] p-12 md:p-20 text-center mb-24"
-      >
-        <span className="text-brand-gold text-[11px] tracking-[0.3em] uppercase mb-6 block">WHY HESSLAB</span>
-        <div className="max-w-2xl mx-auto space-y-6 text-brand-ink leading-relaxed mb-12">
-          <p>
-            헤스랩은 잠깐의 시원함보다 <br />
-            몸의 순환, 긴장, 붓기, 컨디션을 함께 보며 <br />
-            지금 필요한 방향의 관리를 제안합니다.
-          </p>
-          <p>
-            바디, 헤드, 페이스, 산전산후, 성장판까지 <br />
-            한 사람의 몸 상태에 맞춰 <br />
-            편안한 회복을 돕습니다.
-          </p>
-        </div>
-        <div className="flex flex-col md:flex-row justify-center gap-8 text-sm font-medium">
-          <div className="flex items-center justify-center gap-3">
-            <div className="w-1.5 h-1.5 rounded-full bg-brand-gold"></div>
-            <span>몸 상태에 맞춘 관리</span>
-          </div>
-          <div className="flex items-center justify-center gap-3">
-            <div className="w-1.5 h-1.5 rounded-full bg-brand-gold"></div>
-            <span>바디부터 산전산후까지 폭넓은 케어</span>
-          </div>
-          <div className="flex items-center justify-center gap-3">
-            <div className="w-1.5 h-1.5 rounded-full bg-brand-gold"></div>
-            <span>편안함 그 이상을 생각하는 테라피</span>
-          </div>
-        </div>
-      </motion.div>
 
       {/* CTA Section */}
       <motion.div 
